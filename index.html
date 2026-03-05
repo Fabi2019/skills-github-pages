@@ -3,23 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de operaciones</title>
+    <title>Reto Matemático Pro</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1 id="titulo">Juego de operaciones con enteros</h1>
-    <p id="numeros">_</p>
-    <p id="resultado">_</p>
-    <div id="botones">
-        <div id="operaciones">
-            <button id="suma" class="operacion">+</button>
-            <button id="resta" class="operacion">-</button>
-            <button id="multiplicacion" class="operacion">•</button>
-            <button id="division" class="operacion">/</button>
+    <h1 id="titulo">Reto Matemático</h1>
+
+    <div id="stats">
+        <div class="stat-box">
+            <span class="stat-label">Puntos</span>
+            <span id="puntos" class="stat-value">0</span>
         </div>
-        <button id="generar">Generar números</button>
-        <button id="mostrar">Mostrar</button>
+        <div class="stat-box">
+            <span class="stat-label">Récord Op.</span>
+            <span id="record" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+            <span id="etiqueta-global" class="stat-label">GLOBAL (NAT)</span>
+            <span id="record-global" class="stat-value" style="color: #f1c40f;">0</span>
+        </div>
     </div>
+
+    <div id="configuracion">
+        <label>Modo de Juego:</label>
+        <select id="tipo-numero">
+            <option value="naturales">Naturales (0 a 20)</option>
+            <option value="enteros">Enteros (-20 a 20)</option>
+        </select>
+    </div>
+
+    <div id="contenedor-tiempo">
+        <div id="barra-tiempo"></div>
+    </div>
+
+    <p id="numeros">_</p>
+    
+    <div id="input-area">
+        <input type="number" id="respuesta-usuario" placeholder="?" autofocus>
+    </div>
+
+    <p id="resultado">¡Suerte!</p>
+
+    <div id="botones">
+        <button id="suma" class="operacion active">+</button>
+        <button id="resta" class="operacion">-</button>
+        <button id="multiplicacion" class="operacion">•</button>
+        <button id="division" class="operacion">÷</button>
+    </div>
+
+    <div id="modal-final">
+        <div class="modal-content">
+            <h2 id="modal-titulo">¡Tiempo agotado!</h2>
+            <div id="historial-final"></div>
+            <p>Puntos logrados: <strong id="final-puntos">0</strong></p>
+            <p>Rendimiento: <strong id="final-rendimiento">0</strong> op/m</p>
+            <button onclick="reiniciarJuego()" id="btn-reinicio">Jugar de nuevo</button>
+        </div>
+    </div>
+
     <script src="scripty.js"></script>
 </body>
 </html>
